@@ -1,0 +1,303 @@
+{
+    "HEADER": {
+      "ABOUT": "About",
+      "SERVICES": "Services",
+      "EXPERIENCE": "Experience",
+      "PORTFOLIO": "Portfolio",
+      "TESTIMONIAL": "Testimonials",
+      "CONTACT": "Contact"
+    },
+    "INTRO": {
+        "GREETING": "Hello, I am",
+        "TAGLINE": "Passionate developer creating elegant and high-performing web solutions.",
+        "HIRE_ME": "Hire Me",
+        "DOWNLOAD_CV": "Download my CV",
+        "TYPED_TEXTS": [
+          "Full-Stack Developer",
+          "Angular Specialist",
+          "Java/Python Expert",
+          "Web Application Architect",
+          "API Integration Professional"
+        ]
+      },
+      "ABOUT": {
+        "SUBTITLE": "Get To Know Me",
+        "TITLE": "About Me",
+        "BIO_PART1": "Digital architect combining Angular frontend mastery with Java/Python backend expertise, I transform technical challenges into elegant, high-performing solutions that truly serve business objectives.",
+        "BIO_PART2": "My approach integrates technical excellence with strategic thinking—building systems that scale for tomorrow's demands while delivering exceptional user experiences today.",
+        "APPROACH_TITLE": "My Philosophy",
+        "APPROACH_TEXT": "With experience across multiple industries and complex projects, I bring a unique perspective that bridges the gap between design vision and technical implementation, whether developing responsive interfaces, crafting robust APIs, or implementing efficient data processing solutions.",
+        "YEARS_EXPERIENCE": "Years Experience",
+        "EXPERIENCE_DESC": "Professional web application development",
+        "COMPLETED_PROJECTS": "Completed Projects",
+        "PROJECTS_DESC": "Successfully delivered web and mobile applications",
+        "CLIENT_SATISFACTION": "Client Satisfaction",
+        "SATISFACTION_DESC": "Satisfaction rate on completed projects"
+      },
+    "SERVICES": {
+      "SUBTITLE": "What I Offer",
+      "TITLE": "My Services",
+      "DESCRIPTION": "I provide comprehensive solutions for your web development needs, from robust backend architecture to dynamic and responsive user interfaces.",
+      "FRONTEND_TAB": "Frontend",
+      "BACKEND_TAB": "Backend",
+      "FRONTEND_SERVICES": [
+        {
+          "icon": "fa-code",
+          "title": "Angular Development",
+          "description": "Creating modern, reactive, and optimized web applications with Angular, TypeScript, and RxJS.",
+          "technologies": ["Angular", "TypeScript", "RxJS", "NGXS/NGRX"]
+        },
+        {
+          "icon": "fa-palette",
+          "title": "UI/UX Integration",
+          "description": "Transforming mockups into interactive and aesthetically pleasing user interfaces with attention to detail.",
+          "technologies": ["Tailwind CSS", "Bootstrap", "SCSS", "Animations"]
+        },
+        {
+          "icon": "fa-mobile-alt",
+          "title": "Responsive Design",
+          "description": "Designing adaptive interfaces that provide an optimal experience across all devices, from mobile to desktop.",
+          "technologies": ["Mobile-first", "Media Queries", "PWA", "Flexbox/Grid"]
+        },
+        {
+          "icon": "fa-tachometer-alt",
+          "title": "Performance Optimization",
+          "description": "Improving loading times and user experience through advanced optimization techniques.",
+          "technologies": ["Lazy Loading", "Code Splitting", "Bundle Optimization", "Caching"]
+        },
+        {
+          "icon": "fa-cogs",
+          "title": "Advanced State Management",
+          "description": "Implementing robust solutions to efficiently manage application state and data flows.",
+          "technologies": ["NGRX", "NGXS", "Services", "Signals"]
+        },
+        {
+          "icon": "fa-check-circle",
+          "title": "Automated Testing",
+          "description": "Developing comprehensive test suites to ensure code quality and reliability.",
+          "technologies": ["Jasmine", "Karma", "Cypress", "Jest"]
+        }
+      ],
+      "BACKEND_SERVICES": [
+        {
+          "icon": "fa-server",
+          "title": "Java/Spring Development",
+          "description": "Designing and implementing robust and scalable backend applications with Java and the Spring ecosystem.",
+          "technologies": ["Spring Boot", "Spring Security", "Spring Data", "Hibernate"]
+        },
+        {
+          "icon": "fa-python",
+          "title": "Python Solutions",
+          "description": "Creating efficient backend services, APIs, and automation tools with Python and its frameworks.",
+          "technologies": ["Django", "Flask", "FastAPI"]
+        },
+        {
+          "icon": "fa-database",
+          "title": "Database Design & Optimization",
+          "description": "Modeling high-performance databases and optimizing queries for high-traffic applications.",
+          "technologies": ["PostgreSQL", "MySQL", "MongoDB", "Redis"]
+        },
+        {
+          "icon": "fa-lock",
+          "title": "Security & Authentication",
+          "description": "Implementing secure authentication systems and protecting applications against common vulnerabilities.",
+          "technologies": ["JWT", "OAuth2", "Spring Security", "HTTPS"]
+        },
+        {
+          "icon": "fa-cloud",
+          "title": "Cloud Architecture",
+          "description": "Designing and deploying scalable, resilient, and highly available cloud-native applications.",
+          "technologies": [ "Docker", "Kubernetes", "Microservices"]
+        },
+        {
+          "icon": "fa-project-diagram",
+          "title": "RESTful API Design",
+          "description": "Creating robust, well-documented, and easy-to-use APIs following REST best practices.",
+          "technologies": ["REST", "OpenAPI", "Swagger", "Versioning"]
+        }
+      ]
+    },
+    "EXPERIENCE": {
+        "SUBTITLE": "My Journey",
+        "TITLE": "Professional Experience",
+        "DESCRIPTION": "Here's my professional journey as a Full-Stack developer in the technology sector.",
+        "ITEMS": [
+          {
+            "position": "Full-Stack Developer",
+            "company": "PaySika",
+            "location": "Douala, Cameroon",
+            "startDate": "June 2023",
+            "endDate": "Present"
+          },
+          {
+            "position": "Full-Stack Developer",
+            "company": "Mesintech",
+            "location": "Douala, Cameroon",
+            "startDate": "Oct 2022",
+            "endDate": "May 2023"
+          },
+          { 
+            "position": "Junior Full-Stack Developer",
+            "company": "TonkaIn",
+            "location": "Bangangté, Cameroon",
+            "startDate": "May 2019",
+            "endDate": "March 2022"
+          }
+        ]
+      },
+    "PORTFOLIO": {
+      "SUBTITLE": "My Projects",
+      "TITLE": "Portfolio",
+      "DESCRIPTION": "Discover a selection of my recent projects, showcasing my full-stack development skills.",
+      "ALL": "All",
+      "LOAD_MORE": "Load More Projects",
+      "CATEGORIES": {
+        "WEB": "Web",
+        "DASHBOARD": "Dashboard",
+        "ECOMMERCE": "E-commerce",
+        "API": "API"
+      },
+      "PROJECTS": [
+        {
+          "id": 1,
+          "title": "Buy1Way",
+          "description": "A complete marketplace allowing technical professionals and merchants to sell their goods and services. This e-commerce platform facilitates connections between sellers and buyers while providing management tools for professionals. Modern architecture combining Angular SSR for optimal client-side performance and Flask for a solid and flexible backend.",
+          "images": ["buy1way1.png", "buy1way2.png"],
+          "category": "ecommerce",
+          "technologies": ["Angular", "SSR", "Flask", "Python", "AWS", "AWS S3", "REST API", "PostgreSQL"],
+          "demoUrl": "https://buy1way.com/",
+          "codeUrl": "https://github.com/dilanettd"
+        },
+        {
+          "id": 2,
+          "title": "Katika SAS",
+          "description": "Showcase website for Katika SAS, presenting the company's services, vision, and offerings. Elegant and modern interface developed with Angular, providing a smooth and responsive user experience. The site highlights the company's identity with a refined design and intuitive navigation.",
+          "images": ["katika1.png", "katika2.png"],
+          "category": "web",
+          "technologies": ["Angular", "TypeScript", "SCSS", "Responsive Design"],
+          "demoUrl": "https://www.katika.io/",
+          "codeUrl": "https://github.com/dilanettd"
+        },
+        {
+          "id": 3,
+          "title": "PaySika",
+          "description": "PaySika is a financial technology company developing mobile and web-based banking solutions for French-speaking African countries. I worked on the backend of the application, implementing a robust and scalable architecture to handle financial transactions securely and efficiently. The backend system uses modern technologies to ensure high availability and optimal processing of operations.",
+          "images": ["paysika1.png", "paysika2.png"],
+          "category": "api",
+          "technologies": ["Python", "Flask", "AWS", "Docker", "Kubernetes", "RabbitMQ"],
+          "demoUrl": "https://play.google.com/store/apps/details?id=prod.paysika.co",
+          "codeUrl": "https://github.com/dilanettd"
+        },
+        {
+            "id": 4,
+            "title": "Mesintech",
+            "description": "Showcase website for Mesintech, a company founded in 2022 by a group of Cameroonian engineers dedicated to Africa's development. I designed and developed this modern, responsive website that reflects the company's identity and highlights their multidisciplinary expertise. The site presents Mesintech's various services and areas of expertise, as well as their mission and vision for the continent's technological future.",
+            "images": ["mesintech1.png", "mesintech2.png"],
+            "category": "web",
+            "technologies": ["Angular", "TypeScript", "Bootstrap", "SCSS", "Responsive Design"],
+            "demoUrl": "https://mesintech.net/",
+            "codeUrl": "https://github.com/dilanettd"
+          },
+          {
+            "id": 5,
+            "title": "Decibelvibe",
+            "description": "E-commerce platform specialized in high-end audio products for TNZ ENGINEERING's Decibelvibe brand. Elegant interface combining modern and retro design, reflecting the company's 8+ years of acoustic expertise. The site offers an immersive user experience to discover and purchase exceptional quality audio products, each having undergone a meticulous design process and rigorous quality control.",
+            "images": ["decibelvibe1.png", "decibelvibe2.png"],
+            "category": "ecommerce",
+            "technologies": ["Angular", "Tailwind CSS", "NGXS", "Django", "REST API", "PostgreSQL"],
+            "demoUrl": "https://decibelvibe.com/",
+            "codeUrl": "https://github.com/dilanettd"
+          },
+          {
+            "id": 6,
+            "title": "FlexnKentPay",
+            "description": "An inclusive e-commerce platform enabling all types of sellers - from large stores to individuals - to offer their products. FlexnKentPay's uniqueness lies in its integration of local African payment methods, specially adapted for Cameroon, offering customers the flexibility of installment payments. This innovative solution democratizes e-commerce access for sellers while facilitating purchases for consumers through payment options tailored to the local context.",
+            "images": ["flexnkentpay1.png", "flexnkentpay2.png"],
+            "category": "ecommerce",
+            "technologies": ["SpringBoot", "Angular", "SSR", "REST API", "Payment Gateway Integration", "PostgreSQL"],
+            "demoUrl": "https://flexnkentpay.com/",
+            "codeUrl": "https://github.com/dilanettd"
+          },
+          {
+            "id": 7,
+            "title": "Nkiapanou Admin",
+            "description": "Comprehensive administration interface for the Nkiapanou e-commerce platform. This application enables centralized management of orders, revenue tracking, inventory control, and user administration. Intuitive dashboard providing real-time business analytics, allowing administrators to make informed decisions based on accurate data. A robust solution that simplifies daily operations and optimizes the overall performance of the e-commerce platform.",
+            "images": ["nkiapanou-admin1.png", "nkiapanou-admin2.png"],
+            "category": "dashboard",
+            "technologies": ["Angular", "Tailwind CSS", "NGRX", "SpringBoot", "JWT Authentication", "RESTful API", "Chart.js", "PostgreSQL"],
+            "demoUrl": "https://nkiapanou.com/admin/login",
+            "codeUrl": "https://github.com/dilanettd"
+          },
+          {
+            "id": 8,
+            "title": "Nkiapanou",
+            "description": "E-commerce platform specialized in selling authentic African products from Cameroon, distributed across several categories: Fashion, Decoration, Jewelry, and Spices. Elegant and intuitive user interface allowing for a smooth shopping experience, with integration of multiple international payment solutions. The site presents Cameroonian crafts and products to a global audience while highlighting cultural heritage and local expertise.",
+            "images": ["nkiapanou1.png", "nkiapanou2.png"],
+            "category": "ecommerce",
+            "technologies": ["Angular", "SSR", "NGXS", "TypeScript", "RxJS", "Tailwind CSS", "SpringBoot", "Java", "Spring Security", "Spring Data JPA", "AWS S3", "CloudFront", "Stripe", "PayPal", "REST API", "PostgreSQL", "Redis", "Docker", "CI/CD", "Responsive Design"],
+            "demoUrl": "https://nkiapanou.com/",
+            "codeUrl": "https://github.com/dilanettd"
+          }
+      ]
+    },
+    "TESTIMONIAL": {
+      "SUBTITLE": "What My Clients Say",
+      "TITLE": "Testimonials",
+      "DESCRIPTION": "Discover what my clients and partners think about my work and collaboration.",
+      "ITEMS": [
+        {
+          "id": 1,
+          "name": "Sophie ",
+          "position": "Marketing Director",
+          "company": "TechInnov",
+          "content": "Dilane transformed our vision into an exceptional web platform. His understanding of our business needs and technical mastery made all the difference. I highly recommend his services to any company looking for a high-level full-stack developer.",
+          "image": "testimonial-1.jpg"
+        },
+        {
+          "id": 2,
+          "name": "Thomas ",
+          "position": "CTO",
+          "company": "FinTech Solutions",
+          "content": "We entrusted Dilane with the development of our financial application, and the results exceeded our expectations. His expertise in Angular and Spring Boot, combined with his rigor and attention to detail, allowed for the delivery of a stable and performant product within the set deadlines.",
+          "image": "testimonial-2.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Émilie ",
+          "position": "Founder",
+          "company": "E-Commerce Plus",
+          "content": "Dilane is a true asset to our company. He not only developed our e-commerce platform but also brought innovative ideas that improved the user experience. His responsiveness and professionalism are exemplary.",
+          "image": "testimonial-3.jpg"
+        }
+      ]
+    },
+    "CONTACT": {
+    "SUBTITLE": "Stay in Touch",
+    "TITLE": "Contact Me",
+    "DESCRIPTION": "Do you have a project in mind or want to discuss a collaboration? Feel free to reach out!",
+    "INFO_TITLE": "My Contact Information",
+    "FORM_TITLE": "Send Me a Message",
+    "EMAIL_LABEL": "Email",
+    "EMAIL_PLACEHOLDER": "Your email address",
+    "PHONE_LABEL": "Phone",
+    "LOCATION_LABEL": "Location",
+    "NAME_LABEL": "Name",
+    "NAME_PLACEHOLDER": "Your full name",
+    "SUBJECT_LABEL": "Subject",
+    "SUBJECT_PLACEHOLDER": "The subject of your message",
+    "MESSAGE_LABEL": "Message",
+    "MESSAGE_PLACEHOLDER": "Your message...",
+    "SUBMIT_BUTTON": "Send Message",
+    "SENDING": "Sending...",
+    "SUCCESS_MESSAGE": "Your message has been sent successfully! I will get back to you as soon as possible.",
+    "ERROR_MESSAGE": "An error occurred while sending your message. Please try again.",
+    "SOCIAL_TITLE": "Find me on social media",
+    "ERRORS": {
+      "NAME_REQUIRED": "Name is required",
+      "EMAIL_REQUIRED": "Email is required",
+      "EMAIL_INVALID": "Please enter a valid email address",
+      "SUBJECT_REQUIRED": "Subject is required",
+      "MESSAGE_REQUIRED": "Message is required"
+    }
+  }
+}
