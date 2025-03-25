@@ -1,0 +1,201 @@
+// experience.component.scss
+
+// Animation de fondu pour titres et textes
+.reveal-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Animation de glissement pour les blocs d'expérience
+.reveal-slide {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Conteneur de la timeline
+.roadmap-container {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+// Ligne centrale de la timeline
+.roadmap-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--orange), var(--yellow));
+  transition: height 1.5s ease-in-out;
+  border-radius: 999px;
+  overflow: hidden;
+
+  &.active {
+    height: 100%;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.7) 50%,
+      transparent 100%
+    );
+    animation: shine 2s infinite linear;
+    opacity: 0.5;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+// Points centraux de la timeline
+.roadmap-point {
+  position: relative;
+  z-index: 5;
+
+  .pulse-circle {
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: scale(0.5);
+    box-shadow: 0 0 0 rgba(252, 166, 31, 0.4);
+
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+      animation: pulse 2s infinite;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: var(--orange);
+      opacity: 0.7;
+      animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+      transform: scale(0);
+    }
+  }
+}
+
+// Animation pour l'effet de pulsation des points
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.7;
+  }
+  80%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(252, 166, 31, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(252, 166, 31, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(252, 166, 31, 0);
+  }
+}
+
+// Contenus de la roadmap
+.roadmap-content {
+  position: relative;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    transform: translateY(-10px) !important;
+    border-bottom: 3px solid var(--orange);
+  }
+}
+
+// Animation de l'étiquette de date
+.roadmap-date span {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(252, 166, 31, 0.3);
+  }
+}
+
+// Logos des entreprises
+.roadmap-content img {
+  transition: transform 0.3s ease;
+}
+
+.roadmap-content:hover img {
+  transform: scale(1.1);
+}
+
+// Badges de technologies
+.roadmap-content span {
+  cursor: default;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  .roadmap-line {
+    left: 20px;
+    height: 100% !important;
+  }
+
+  .pulse-circle {
+    left: 30px !important;
+    transform: none !important;
+  }
+
+  .roadmap-content {
+    width: 85% !important;
+    margin-left: auto;
+  }
+
+  .roadmap-date {
+    position: absolute;
+    left: 50px;
+    top: 10px;
+    width: auto !important;
+    z-index: 5;
+  }
+
+  .roadmap-date span {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+  }
+}

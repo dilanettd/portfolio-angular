@@ -1,0 +1,109 @@
+<section
+  id="experience"
+  class="py-20 relative overflow-hidden transition-dark-mode"
+>
+  <!-- Background blur effects -->
+  <div
+    class="blur absolute right-24 top-20 bg-purple bg-opacity-30 dark:bg-purple dark:bg-opacity-10"
+  ></div>
+
+  <div class="container mx-auto px-4">
+    <!-- Section Title -->
+    <div class="mb-16 reveal-fade">
+      <div class="title mt-2">
+        <h2 class="title-text dark:text-white">
+          {{ "EXPERIENCE.TITLE" | translate }}
+        </h2>
+      </div>
+      <div class="subtitle">
+        <div class="subtitile-bar left"></div>
+        <span class="subtitle-text">{{
+          "EXPERIENCE.SUBTITLE" | translate
+        }}</span>
+        <div class="subtitile-bar right"></div>
+      </div>
+    </div>
+
+    <p
+      class="max-w-3xl mx-auto mb-16 text-center text-gray dark:text-gray-300 reveal-fade"
+      style="animation-delay: 0.2s"
+    >
+      {{ "EXPERIENCE.DESCRIPTION" | translate }}
+    </p>
+
+    <!-- Roadmap Timeline -->
+    <div class="relative max-w-5xl mx-auto roadmap-container">
+      <!-- Vertical Line -->
+      <div
+        class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-orange bg-opacity-30 rounded-full roadmap-line"
+      ></div>
+
+      <!-- Experience Items -->
+      <div
+        *ngFor="let item of experienceItems; let i = even; let idx = index"
+        [ngClass]="{ 'md:flex-row-reverse': i }"
+        class="flex flex-col md:flex-row items-center justify-between mb-16 reveal-slide"
+        [style.animation-delay]="idx * 0.2 + 's'"
+      >
+        <!-- Date Badge -->
+        <div
+          class="order-2 md:order-1 w-full md:w-5/12 mb-6 md:mb-0 roadmap-date"
+          [ngClass]="{ 'md:text-right md:pr-8': !i, 'md:text-left md:pl-8': i }"
+        >
+          <span
+            class="inline-block px-4 py-2 bg-gradient-to-r from-yellow to-orange text-white rounded-full text-sm font-medium shadow-buttonShadow"
+          >
+            {{ item.startDate }} - {{ item.endDate }}
+          </span>
+        </div>
+
+        <!-- Center Point with pulse animation -->
+        <div class="roadmap-point">
+          <div
+            class="absolute left-1/2 transform -translate-x-1/2 order-1 w-8 h-8 rounded-full border bg-orange border-4 border-white dark:border-gray-800 z-10 flex items-center justify-center pulse-circle"
+          >
+            <div class="w-2 h-2 bg-white dark:bg-white rounded-full"></div>
+          </div>
+        </div>
+
+        <!-- Content Box -->
+        <div
+          class="bg-transparent border border-orange border-gray-50 order-3 w-full md:w-5/12 rounded-xl shadow-custom dark:shadow-smCustom p-6 hover:shadow-lg transition-all duration-300 roadmap-content"
+          [ngClass]="{ 'md:pl-8': !i, 'md:pr-8': i }"
+        >
+          <!-- Logo and Title in flex -->
+          <div class="flex items-center gap-4">
+            <!-- Company Logo -->
+            <div
+              class="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white dark:bg-gray-700 p-1 shadow-sm"
+            >
+              <img
+                [src]="'assets/images/logo/' + getCompanyLogo(item.company)"
+                [alt]="item.company + ' logo'"
+                class="w-full h-full object-contain"
+              />
+            </div>
+
+            <div>
+              <!-- Position Title -->
+              <h3 class="text-xl font-bold dark:text-white">
+                {{ item.position }}
+              </h3>
+
+              <!-- Company and Location -->
+              <div class="flex items-center text-sm">
+                <span class="text-orange font-semibold">{{
+                  item.company
+                }}</span>
+                <span class="mx-2 text-gray dark:text-gray-300">|</span>
+                <span class="text-gray dark:text-gray-300">{{
+                  item.location
+                }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

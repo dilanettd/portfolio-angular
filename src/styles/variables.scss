@@ -1,0 +1,277 @@
+:root {
+  /* Couleurs principales - alignées avec tailwind.config.js */
+  --yellow: #f5c32c;
+  --orange: #fca61f;
+  --black: #22252c;
+  --gray: #788097;
+  --blueCard: #ddf8fe;
+  --blue: #5664a0;
+  --purple: rgb(238 210 255);
+  --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+  --orangeCard: rgba(252, 166, 31, 0.45);
+  --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+
+  /* Dégradés - correspondant à btn-primary dans tailwind */
+  --orange-gradient: linear-gradient(180deg, #fdc50f 26.71%, #fb982f 99.36%);
+
+  /* Ombres - alignées avec buttonShadow dans tailwind */
+  --button-shadow: 0px 5px 12px 3px rgba(251, 161, 40, 0.42);
+
+  /* Transitions - pour être cohérent avec les transitions tailwind */
+  --transition-default: all 0.3s ease;
+
+  /* Rayons de bordure - alignés avec les arrondis tailwind */
+  --border-radius-sm: 0.375rem; /* rounded */
+  --border-radius-md: 0.5rem; /* rounded-lg */
+  --border-radius-lg: 0.75rem; /* rounded-xl */
+  --border-radius-full: 9999px; /* rounded-full */
+}
+
+/* Dark mode variables */
+.dark {
+  --black: #f7f7f7;
+  --gray: #d0d0d0;
+  --blueCard: #2a2a2a;
+  --blue: #7a8ed3;
+  --boxShadow: 0px 19px 60px rgb(255 255 255 / 8%);
+  --smboxShadow: -79px 51px 60px rgba(255, 255, 255, 0.08);
+}
+
+/* Classe App de base */
+.App {
+  overflow: hidden;
+  color: var(--black);
+}
+
+/* Classes Boutons - reflétant les styles définis dans tailwind.config.js */
+.button {
+  background: var(--orange-gradient);
+  box-shadow: var(--button-shadow);
+  border-radius: var(--border-radius-md);
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 11px 26px;
+  transition: var(--transition-default);
+}
+
+.button:hover {
+  background: white;
+  cursor: pointer;
+  border: 1px solid var(--orange);
+  color: var(--orange);
+}
+
+/* Contact styles - préservés de votre code original */
+.contact {
+  padding: 0 3rem 0 3rem;
+  margin: 4rem auto;
+  padding-top: 1rem;
+  margin-bottom: 12rem;
+  max-width: 1000px !important;
+}
+
+.contact-description {
+  color: var(--gray);
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+.contact-infos {
+  margin-top: 1rem;
+  color: var(--gray);
+  font-size: 1.1rem;
+}
+
+.contact-infos i {
+  color: var(--orange);
+  margin-right: 5px;
+  font-size: 30px;
+}
+
+.contact-infos small {
+  font-size: 0.9rem;
+}
+
+.contact-infos__title {
+  margin-bottom: -5px;
+  color: var(--orange);
+}
+
+.contact-input {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.3em;
+  outline: none;
+  border: 1px solid var(--orange);
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 1rem;
+}
+
+textarea.contact-input {
+  height: 10rem !important;
+}
+
+.contact-button__submit {
+  display: flex;
+  justify-content: center;
+}
+
+/* Social media buttons */
+.social-button {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 992px) {
+  .social-button {
+    justify-content: center;
+  }
+}
+
+.share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  float: left;
+  margin: 0.5rem 1rem 0.5rem 0;
+  color: var(--gray);
+  border: 0.125rem solid #f3f3f3;
+  box-shadow: 0 0 8px 0 rgba(50, 50, 50, 0.15);
+  border-radius: 50%;
+  transition: 250ms;
+}
+
+.share i {
+  font-size: 22px;
+}
+
+/* Hover effects for different social platforms */
+.linkedin:hover,
+.linkedin:focus {
+  color: #0a66c2;
+  box-shadow: 0 0 24px 0 #0a66c2;
+}
+
+.github:hover,
+.github:focus {
+  color: #4078c0;
+  box-shadow: 0 0 24px 0 #4078c0;
+}
+
+.youtube:hover,
+.youtube:focus {
+  color: #cd201f;
+  box-shadow: 0 0 24px 0 #cd201f;
+}
+
+.facebook:hover,
+.facebook:focus {
+  color: #1877f2;
+  box-shadow: 0 0 24px 0 #1877f2;
+}
+
+/* Title styling - préservé de votre code original */
+.subtitle,
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.subtitile-bar {
+  width: 4px;
+  height: 26px;
+  background-color: var(--orange);
+  transform: rotate(90deg);
+  margin-bottom: 8px;
+}
+
+.subtitile-bar.left {
+  margin-right: 20px;
+}
+
+.subtitile-bar.right {
+  margin-left: 20px;
+}
+
+.title-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 992px) {
+  .title-text {
+    font-size: 1.8rem;
+  }
+}
+
+.subtitle-text {
+  color: var(--orange);
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 992px) {
+  .subtitle-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animations cohérentes avec tailwind.config.js */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(50px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(50px) rotate(-360deg);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbit 15s linear infinite;
+}
+
+/* Blur effects */
+.blur {
+  position: absolute;
+  width: 22rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: #b9c8e7;
+  filter: blur(72px);
+  z-index: -9;
+}
+
+.blur-intro {
+  width: 22rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: #edd0ff85;
+  filter: blur(72px);
+  z-index: -9;
+  top: -18%;
+  left: 56%;
+}

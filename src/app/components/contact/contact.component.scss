@@ -1,0 +1,230 @@
+/* Contact Component SCSS */
+
+// Animation classes
+.reveal-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.icon-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin-left: 5px;
+  padding: 5px;
+}
+
+.contact-info-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    .fas,
+    .fab {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.contact-infos__title {
+  position: relative;
+  transition: all 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--orange);
+    transition: width 0.3s ease;
+  }
+}
+
+.contact-info-item:hover .contact-infos__title::after {
+  width: 100%;
+}
+
+// Styling for social icons
+.social-links {
+  margin-top: 2rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--orangeCard);
+  color: var(--orange);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  &.linkedin:hover {
+    color: #0a66c2 !important;
+    box-shadow: 0 5px 15px rgba(10, 102, 194, 0.4);
+  }
+
+  &.github:hover {
+    color: #24292e !important;
+    box-shadow: 0 5px 15px rgba(36, 41, 46, 0.4);
+  }
+
+  &.whatsapp:hover {
+    color: #25d366 !important;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+  }
+}
+
+// Styling for form inputs with transparent background
+.contact-input {
+  width: 100%;
+  border: 1px solid #c8c2ad;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: transparent; // Transparent background
+  backdrop-filter: blur(
+    4px
+  ); // Optional: slight blur effect for better readability
+  color: var(--black);
+
+  &::placeholder {
+    color: var(--gray);
+    opacity: 0.8;
+  }
+
+  &:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(252, 166, 31, 0.2);
+  }
+
+  &.ng-touched.ng-invalid {
+    border-color: #f56565;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.2);
+    }
+  }
+
+  .dark & {
+    background-color: transparent; // Keep transparent in dark mode too
+    border-color: #4b5563; // Darker border for dark mode
+    color: white;
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+  }
+}
+
+// Submit button styling
+.contact-button__submit button {
+  min-width: 180px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: all 0.3s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+}
+
+// Animation pour les messages de succès/erreur
+.form-message {
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.5s forwards;
+
+  &.success {
+    background-color: rgba(209, 250, 229, 0.8);
+    color: #047857;
+    border-left: 4px solid #10b981;
+  }
+
+  &.error {
+    background-color: rgba(254, 226, 226, 0.8);
+    color: #b91c1c;
+    border-left: 4px solid #ef4444;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .contact-info-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .social-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 0.875rem;
+  }
+}

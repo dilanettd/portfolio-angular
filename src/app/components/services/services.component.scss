@@ -1,0 +1,152 @@
+// services.component.scss
+
+// Styling for tabs
+.tab-container {
+  width: auto;
+  display: inline-flex;
+  position: relative;
+
+  .tab-slider {
+    width: calc(50% - 6px);
+    box-shadow: 0 4px 15px rgba(252, 166, 31, 0.3);
+  }
+}
+
+// Animations for reveal-fade-up
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Animations for reveal-slide-up (cards)
+.reveal-slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Service tabs container
+.service-tabs-container {
+  position: relative;
+  min-height: 400px; // Ensure container has minimum height
+}
+
+// Service grid visibility control
+.service-grid {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  position: absolute;
+  width: 100%;
+
+  &.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
+    position: relative;
+  }
+
+  &.inactive {
+    opacity: 0;
+    transform: translateX(20px);
+    z-index: 1;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  // Force visibility class
+  &.visible {
+    .reveal-slide-up {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Service cards hover effects
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 3px solid transparent;
+  backdrop-filter: blur(0); // Initial no-blur state
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--orange);
+  }
+
+  // Dark mode specific styles
+  :host-context(.dark) & {
+    &[class*="bg-transparent"] {
+      background-color: rgba(31, 41, 55, 0.4); // Slightly visible background
+      backdrop-filter: blur(8px); // Apply blur in dark mode
+      border: 1px solid rgba(255, 255, 255, 0.1); // Subtle border
+
+      &:hover {
+        background-color: rgba(
+          31,
+          41,
+          55,
+          0.6
+        ); // Slightly more visible on hover
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  // Icon container
+  .rounded-full {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .rounded-full {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+// Technologies badges hover effect
+span {
+  cursor: default;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+// Tab buttons focus states
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(252, 166, 31, 0.4);
+}
+
+// Responsive adjustments
+@media screen and (max-width: 768px) {
+  .tab-container {
+    width: 100%;
+    max-width: 320px;
+
+    button {
+      font-size: 0.875rem;
+    }
+
+    .fas {
+      margin-right: 0.25rem;
+    }
+  }
+
+  .service-tabs-container {
+    min-height: 800px; // Increase min-height for mobile
+  }
+}

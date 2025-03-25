@@ -1,0 +1,203 @@
+<!-- header.component.html -->
+<header
+  class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm transition-all duration-300 shadow-sm"
+>
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <img
+        src="assets/images/logo/logo.png"
+        alt="Dilano.Dev Logo"
+        class="h-10"
+      />
+    </div>
+
+    <!-- Navigation -->
+    <nav class="hidden md:block">
+      <ul class="flex space-x-8">
+        <li>
+          <a
+            href="#about"
+            class="text-black dark:text-white hover:text-orange transition-colors duration-300"
+          >
+            {{ "HEADER.ABOUT" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#services"
+            class="text-black dark:text-white hover:text-orange transition-colors duration-300"
+          >
+            {{ "HEADER.SERVICES" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#experience"
+            class="text-black dark:text-white hover:text-orange transition-colors duration-300"
+          >
+            {{ "HEADER.EXPERIENCE" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#portfolio"
+            class="text-black dark:text-white hover:text-orange transition-colors duration-300"
+          >
+            {{ "HEADER.PORTFOLIO" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#testimonial"
+            class="text-black dark:text-white hover:text-orange transition-colors duration-300"
+          >
+            {{ "HEADER.TESTIMONIAL" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#contact"
+            class="text-black dark:text-white hover:text-orange transition-colors duration-300"
+          >
+            {{ "HEADER.CONTACT" | translate }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Settings: Theme & Language -->
+    <div class="flex items-center space-x-4">
+      <!-- Theme Toggle -->
+      <button
+        (click)="toggleTheme()"
+        class="p-1 px-3 rounded-lg border border-orange text-orange hover:bg-orange hover:text-white transition-all duration-300 mr-3"
+        aria-label="Toggle Theme"
+      >
+        <i
+          class="fa"
+          [ngClass]="{ 'fa-sun': !isDarkMode, 'fa-moon': isDarkMode }"
+        ></i>
+      </button>
+
+      <!-- Language Toggle -->
+      <div class="relative" (clickOutside)="isLangMenuOpen = false">
+        <button
+          (click)="isLangMenuOpen = !isLangMenuOpen"
+          class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
+          aria-label="Change Language"
+        >
+          <img
+            [src]="'assets/images/flags/' + currentLang + '.png'"
+            alt="Current Language"
+            class="w-6 h-6"
+          />
+        </button>
+
+        <!-- Language Dropdown -->
+        <div
+          *ngIf="isLangMenuOpen"
+          class="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-800 rounded-md shadow-lg z-10 animate-fadeIn"
+        >
+          <div class="p-2">
+            <button
+              *ngFor="let lang of languages"
+              (click)="changeLanguage(lang.code); isLangMenuOpen = false"
+              class="flex items-center w-full p-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors duration-200"
+            >
+              <img
+                [src]="'assets/images/flags/' + lang.code + '.png'"
+                alt="Language Flag"
+                class="w-5 h-5 mr-2"
+              />
+              <span>{{ lang.name }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        class="md:hidden text-black dark:text-white p-2"
+        (click)="toggleMobileMenu()"
+        aria-label="Toggle mobile menu"
+      >
+        <i
+          class="fa"
+          [ngClass]="{
+            'fa-bars': !isMobileMenuOpen,
+            'fa-times': isMobileMenuOpen
+          }"
+        ></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    *ngIf="isMobileMenuOpen"
+    class="md:hidden bg-white dark:bg-black py-4 px-6 shadow-md transition-all duration-300 animate-slideUp"
+  >
+    <nav>
+      <ul class="space-y-4">
+        <li>
+          <a
+            href="#about"
+            class="block text-black dark:text-white hover:text-orange"
+            (click)="closeMobileMenu()"
+          >
+            {{ "HEADER.ABOUT" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#services"
+            class="block text-black dark:text-white hover:text-orange"
+            (click)="closeMobileMenu()"
+          >
+            {{ "HEADER.SERVICES" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#experience"
+            class="block text-black dark:text-white hover:text-orange"
+            (click)="closeMobileMenu()"
+          >
+            {{ "HEADER.EXPERIENCE" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#portfolio"
+            class="block text-black dark:text-white hover:text-orange"
+            (click)="closeMobileMenu()"
+          >
+            {{ "HEADER.PORTFOLIO" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#testimonial"
+            class="block text-black dark:text-white hover:text-orange"
+            (click)="closeMobileMenu()"
+          >
+            {{ "HEADER.TESTIMONIAL" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#contact"
+            class="block text-black dark:text-white hover:text-orange"
+            (click)="closeMobileMenu()"
+          >
+            {{ "HEADER.CONTACT" | translate }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer to prevent content from hiding under fixed header -->
+<div class="header-spacer"></div>

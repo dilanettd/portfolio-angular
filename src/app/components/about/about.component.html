@@ -1,0 +1,218 @@
+<section
+  id="intro"
+  class="py-16 min-h-screen flex items-center relative overflow-hidden"
+>
+  <!-- Background blur effect -->
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Left column - Intro with auto-typing -->
+      <div class="text-black dark:text-white reveal">
+        <h4 class="font-medium mb-2 text-xl">
+          {{ "INTRO.GREETING" | translate }}
+        </h4>
+
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Dilane Tchinda</h1>
+
+        <div class="h-12 mb-4">
+          <!-- Auto-typing text animation using Typed.js -->
+          <h2 class="text-xl md:text-2xl">
+            <span #typedElement class="typing-element text-orange"></span>
+          </h2>
+        </div>
+
+        <!-- Concise intro text -->
+        <p class="text-gray text-lg mb-8 max-w-lg">
+          {{ "INTRO.TAGLINE" | translate }}
+        </p>
+
+        <!-- Social Links -->
+        <div class="social-button mb-8">
+          <a
+            href="https://www.linkedin.com/in/dilane-tchinda-takoubo-86224b161/"
+            target="_blank"
+            class="share linkedin flex items-center justify-center"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://github.com/dilanettd"
+            target="_blank"
+            class="share github flex items-center justify-center"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://wa.me/237656369040"
+            target="_blank"
+            class="share whatsapp flex items-center justify-center"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+
+        <!-- Action Buttons: Hire Me & Download CV -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="button flex items-center justify-center">
+            {{ "INTRO.HIRE_ME" | translate }}
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+
+          <!-- Nouveau bouton pour télécharger le CV -->
+          <a
+            [href]="'assets/cv/CV_' + currentLang + '.pdf'"
+            download
+            class="button-outline flex items-center justify-center"
+          >
+            <i class="fas fa-download mr-2"></i>
+            {{ "INTRO.DOWNLOAD_CV" | translate }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Right column - Image with floating elements -->
+      <div class="relative reveal">
+        <div class="relative w-80 h-80 mx-auto">
+          <!-- Main profile image -->
+          <img
+            src="assets/images/photo-profile.png"
+            alt="Dilane Tchinda"
+            class="w-full h-full object-cover rounded-full border-4 border-orange shadow-lg animate-pulse-slow"
+          />
+
+          <!-- Floating elements -->
+          <div
+            class="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/4"
+          >
+            <img
+              src="assets/images/crown.png"
+              alt="Crown"
+              class="w-12 h-12 animate-float"
+            />
+          </div>
+
+          <div class="absolute top-1/4 right-0 transform translate-x-1/3">
+            <img
+              src="assets/images/code.png"
+              alt="Code"
+              class="w-14 h-14 animate-float"
+              style="animation-delay: 0.5s"
+            />
+          </div>
+
+          <div class="absolute bottom-0 left-1/4 transform translate-y-1/3">
+            <img
+              src="assets/images/glasses.png"
+              alt="Glasses"
+              class="w-12 h-12 animate-float"
+              style="animation-delay: 1s"
+            />
+          </div>
+
+          <div class="absolute bottom-1/4 right-0 transform translate-x-1/2">
+            <img
+              src="assets/images/glassesimoji.png"
+              alt="Glasses Emoji"
+              class="w-10 h-10 animate-float"
+              style="animation-delay: 1.5s"
+            />
+          </div>
+
+          <div class="absolute top-1/2 left-0 transform -translate-x-1/3">
+            <img
+              src="assets/images/thumbup.png"
+              alt="Thumbs Up"
+              class="w-12 h-12 animate-float"
+              style="animation-delay: 2s"
+            />
+          </div>
+        </div>
+
+        <!-- Animated circle around the profile image -->
+        <div
+          class="absolute inset-0 w-80 h-80 mx-auto rounded-full border-2 border-orange border-dashed animate-spin-slow"
+        ></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section
+  id="about"
+  class="relative overflow-hidden bg-gray-50 dark:bg-gray-900"
+>
+  <!-- Background blur effect -->
+  <div
+    class="absolute rounded-full bg-blue bg-opacity-30 bottom-10 left-20 filter blur-3xl dark:opacity-20 z-0"
+  ></div>
+
+  <div class="container mx-auto px-4">
+    <!-- Section Title (inverted as requested) -->
+    <div class="mb-16 reveal">
+      <div class="title">
+        <h2 class="title-text dark:text-white">
+          {{ "ABOUT.TITLE" | translate }}
+        </h2>
+      </div>
+      <div class="subtitle mt-2">
+        <div class="subtitile-bar left"></div>
+        <span class="subtitle-text">{{ "ABOUT.SUBTITLE" | translate }}</span>
+        <div class="subtitile-bar right"></div>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto reveal">
+      <!-- Bio paragraphs with more structure -->
+      <div class="text-center mb-10">
+        <p class="text-gray dark:text-gray-300 text-lg leading-relaxed mb-4">
+          {{ "ABOUT.BIO_PART1" | translate }}
+        </p>
+        <p class="text-gray dark:text-gray-300 text-lg leading-relaxed">
+          {{ "ABOUT.BIO_PART2" | translate }}
+        </p>
+      </div>
+
+      <!-- Stats section -->
+      <div class="grid md:grid-cols-3 gap-6 mt-12 reveal">
+        <!-- Experience Card -->
+        <div
+          class="bg-white dark:bg-transparent dark:backdrop-blur-sm p-6 rounded-lg shadow-md dark:shadow-smCustom transform hover:-translate-y-2 transition-all duration-300 about-card"
+        >
+          <div class="text-orange text-3xl font-bold mb-2">5+</div>
+          <h3 class="font-semibold mb-2 dark:text-white">
+            {{ "ABOUT.YEARS_EXPERIENCE" | translate }}
+          </h3>
+          <p class="text-gray dark:text-gray-400 text-sm">
+            {{ "ABOUT.EXPERIENCE_DESC" | translate }}
+          </p>
+        </div>
+
+        <!-- Projects Card -->
+        <div
+          class="bg-white dark:bg-transparent dark:backdrop-blur-sm p-6 rounded-lg shadow-md dark:shadow-smCustom transform hover:-translate-y-2 transition-all duration-300 about-card"
+        >
+          <div class="text-orange text-3xl font-bold mb-2">20+</div>
+          <h3 class="font-semibold mb-2 dark:text-white">
+            {{ "ABOUT.COMPLETED_PROJECTS" | translate }}
+          </h3>
+          <p class="text-gray dark:text-gray-400 text-sm">
+            {{ "ABOUT.PROJECTS_DESC" | translate }}
+          </p>
+        </div>
+
+        <!-- Satisfaction Card -->
+        <div
+          class="bg-white dark:bg-transparent dark:backdrop-blur-sm p-6 rounded-lg shadow-md dark:shadow-smCustom transform hover:-translate-y-2 transition-all duration-300 about-card"
+        >
+          <div class="text-orange text-3xl font-bold mb-2">100%</div>
+          <h3 class="font-semibold mb-2 dark:text-white">
+            {{ "ABOUT.CLIENT_SATISFACTION" | translate }}
+          </h3>
+          <p class="text-gray dark:text-gray-400 text-sm">
+            {{ "ABOUT.SATISFACTION_DESC" | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

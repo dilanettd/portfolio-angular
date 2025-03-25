@@ -1,0 +1,306 @@
+<!-- contact.component.html -->
+<section id="contact" class="py-20 relative overflow-hidden">
+  <!-- Background blur effects -->
+  <div
+    class="blur absolute left-8 top-20 bg-blue bg-opacity-30 dark:opacity-20"
+  ></div>
+  <div
+    class="blur absolute right-20 bottom-32 bg-purple bg-opacity-20 dark:opacity-10"
+  ></div>
+
+  <div class="container mx-auto px-4">
+    <!-- Section Title -->
+    <div class="mb-16 reveal-fade">
+      <div class="title mt-2">
+        <h2 class="title-text dark:text-white">
+          {{ "CONTACT.TITLE" | translate }}
+        </h2>
+      </div>
+      <div class="subtitle">
+        <div class="subtitile-bar left"></div>
+        <span class="subtitle-text">{{ "CONTACT.SUBTITLE" | translate }}</span>
+        <div class="subtitile-bar right"></div>
+      </div>
+    </div>
+
+    <p
+      class="contact-description max-w-3xl mx-auto mb-16 text-center text-gray dark:text-gray-300 reveal-fade"
+      style="animation-delay: 0.2s"
+    >
+      {{ "CONTACT.DESCRIPTION" | translate }}
+    </p>
+
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+      <!-- Contact Information -->
+      <div class="reveal-left" style="animation-delay: 0.3s">
+        <h3
+          class="text-2xl font-bold mb-8 relative inline-block dark:text-white"
+        >
+          {{ "CONTACT.INFO_TITLE" | translate }}
+          <span class="absolute bottom-0 left-0 w-1/2 h-1 bg-orange"></span>
+        </h3>
+
+        <div class="contact-infos space-y-8">
+          <!-- Email -->
+          <div class="flex items-center contact-info-item">
+            <div
+              class="flex-shrink-0 w-12 h-12 rounded-full bg-orangeCard flex items-center justify-center mr-5"
+            >
+              <i class="fas fa-envelope text-orange text-xl icon-center"></i>
+            </div>
+            <div>
+              <p class="contact-infos__title font-medium text-orange mb-1">
+                {{ "CONTACT.EMAIL_LABEL" | translate }}
+              </p>
+              <a
+                href="mailto:dilanettd@gmail.com"
+                class="text-gray dark:text-gray-300 hover:text-orange transition-colors"
+              >
+                dilanettd&#64;gmail.com
+              </a>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="flex items-center contact-info-item">
+            <div
+              class="flex-shrink-0 w-12 h-12 rounded-full bg-orangeCard flex items-center justify-center mr-5"
+            >
+              <i class="fas fa-phone text-orange text-xl icon-center"></i>
+            </div>
+            <div>
+              <p class="contact-infos__title font-medium text-orange mb-1">
+                {{ "CONTACT.PHONE_LABEL" | translate }}
+              </p>
+              <a
+                href="tel:+237656369040"
+                class="text-gray dark:text-gray-300 hover:text-orange transition-colors"
+              >
+                +237 6 56 36 90 40
+              </a>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="flex items-center contact-info-item">
+            <div
+              class="flex-shrink-0 w-12 h-12 rounded-full bg-orangeCard flex items-center justify-center mr-5"
+            >
+              <i
+                class="fas fa-map-marker-alt text-orange text-xl icon-center"
+              ></i>
+            </div>
+            <div>
+              <p class="contact-infos__title font-medium text-orange mb-1">
+                {{ "CONTACT.LOCATION_LABEL" | translate }}
+              </p>
+              <p class="text-gray dark:text-gray-300">Douala, Cameroun</p>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-links mt-12">
+            <p class="font-medium mb-4 text-gray-600 dark:text-gray-400">
+              {{ "CONTACT.SOCIAL_TITLE" | translate }}
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://linkedin.com/in/dilane-tchinda-takoubo-86224b161/"
+                target="_blank"
+                class="social-icon linkedin flex"
+              >
+                <i
+                  class="fab fa-linkedin-in icon-center"
+                  style="margin-left: 0"
+                ></i>
+              </a>
+              <a
+                href="https://github.com/dilanettd"
+                target="_blank"
+                class="social-icon github flex"
+              >
+                <i class="fab fa-github icon-center" style="margin-left: 0"></i>
+              </a>
+              <a
+                href="https://wa.me/237656369040"
+                target="_blank"
+                class="social-icon whatsapp flex"
+              >
+                <i
+                  class="fab fa-whatsapp icon-center"
+                  style="margin-left: 0"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="reveal-right" style="animation-delay: 0.5s">
+        <h3
+          class="text-2xl font-bold mb-8 relative inline-block dark:text-white"
+        >
+          {{ "CONTACT.FORM_TITLE" | translate }}
+          <span class="absolute bottom-0 left-0 w-1/2 h-1 bg-orange"></span>
+        </h3>
+
+        <form
+          [formGroup]="contactForm"
+          (ngSubmit)="onSubmit()"
+          class="contact-form"
+        >
+          <!-- Name and Email in same row on desktop -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <!-- Name Input -->
+            <div>
+              <label
+                for="name"
+                class="block text-gray dark:text-gray-300 mb-2 font-medium"
+              >
+                {{ "CONTACT.NAME_LABEL" | translate }}
+              </label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="contact-input"
+                [placeholder]="'CONTACT.NAME_PLACEHOLDER' | translate"
+              />
+              <div
+                *ngIf="name.invalid && (name.dirty || name.touched)"
+                class="text-red-500 text-sm mt-1 pl-2"
+              >
+                <div *ngIf="name.errors?.['required']">
+                  {{ "CONTACT.ERRORS.NAME_REQUIRED" | translate }}
+                </div>
+              </div>
+            </div>
+
+            <!-- Email Input -->
+            <div>
+              <label
+                for="email"
+                class="block text-gray dark:text-gray-300 mb-2 font-medium"
+              >
+                {{ "CONTACT.EMAIL_LABEL" | translate }}
+              </label>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                class="contact-input"
+                [placeholder]="'CONTACT.EMAIL_PLACEHOLDER' | translate"
+              />
+              <div
+                *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="text-red-500 text-sm mt-1 pl-2"
+              >
+                <div *ngIf="email.errors?.['required']">
+                  {{ "CONTACT.ERRORS.EMAIL_REQUIRED" | translate }}
+                </div>
+                <div *ngIf="email.errors?.['email']">
+                  {{ "CONTACT.ERRORS.EMAIL_INVALID" | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subject Input -->
+          <div class="mb-4">
+            <label
+              for="subject"
+              class="block text-gray dark:text-gray-300 mb-2 font-medium"
+            >
+              {{ "CONTACT.SUBJECT_LABEL" | translate }}
+            </label>
+            <input
+              type="text"
+              id="subject"
+              formControlName="subject"
+              class="contact-input"
+              [placeholder]="'CONTACT.SUBJECT_PLACEHOLDER' | translate"
+            />
+            <div
+              *ngIf="subject.invalid && (subject.dirty || subject.touched)"
+              class="text-red-500 text-sm mt-1 pl-2"
+            >
+              <div *ngIf="subject.errors?.['required']">
+                {{ "CONTACT.ERRORS.SUBJECT_REQUIRED" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Message Input -->
+          <div class="mb-6">
+            <label
+              for="message"
+              class="block text-gray dark:text-gray-300 mb-2 font-medium"
+            >
+              {{ "CONTACT.MESSAGE_LABEL" | translate }}
+            </label>
+            <textarea
+              id="message"
+              formControlName="message"
+              class="contact-input resize-none"
+              [placeholder]="'CONTACT.MESSAGE_PLACEHOLDER' | translate"
+              rows="6"
+            ></textarea>
+            <div
+              *ngIf="message.invalid && (message.dirty || message.touched)"
+              class="text-red-500 text-sm mt-1 pl-2"
+            >
+              <div *ngIf="message.errors?.['required']">
+                {{ "CONTACT.ERRORS.MESSAGE_REQUIRED" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="contact-button__submit">
+            <button
+              type="submit"
+              class="button flex items-center justify-center"
+              [disabled]="contactForm.invalid || isSubmitting"
+              [ngClass]="{
+                'opacity-70 cursor-not-allowed':
+                  contactForm.invalid || isSubmitting
+              }"
+            >
+              <span *ngIf="!isSubmitting" class="flex items-center">
+                <i class="fas fa-paper-plane mr-2"></i>
+                {{ "CONTACT.SUBMIT_BUTTON" | translate }}
+              </span>
+              <span *ngIf="isSubmitting" class="flex items-center">
+                <i class="fas fa-spinner fa-spin mr-2"></i>
+                {{ "CONTACT.SENDING" | translate }}
+              </span>
+            </button>
+          </div>
+
+          <!-- Success/Error Message -->
+          <div
+            *ngIf="formSubmitted"
+            class="mt-6 p-4 rounded-lg text-center form-message"
+            [ngClass]="formSubmitSuccess ? 'success' : 'error'"
+          >
+            <div class="flex items-center justify-center">
+              <i
+                [class]="
+                  formSubmitSuccess
+                    ? 'fas fa-check-circle text-green-500 mr-2'
+                    : 'fas fa-exclamation-circle text-red-500 mr-2'
+                "
+              ></i>
+              <span>{{
+                formSubmitSuccess
+                  ? ("CONTACT.SUCCESS_MESSAGE" | translate)
+                  : ("CONTACT.ERROR_MESSAGE" | translate)
+              }}</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

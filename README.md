@@ -1,59 +1,73 @@
-# Porfolio
+Dilane Portfolio - Angular 18
+A professional portfolio developed with Angular 18 , Tailwind CSS , featuring light/dark theme functionality, and multilingual support (French/English).
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+Features
+Responsive and Modern Design : Adaptable to all devices and screen sizes
+.
+Light/Dark Mode : Easily switch between themes with preference persistence.
+Multilingual Support : Full support for French and English using @ngx-translate .
+Smooth Animations : Scrolling animations and elegant transitions powered by Angular's Animation API.
+Optimized Structure : Modular and maintainable Angular architecture.
+Intuitive User Interface : Easy navigation and a polished user experience.
+Sections
+About : Personal introduction with floating element animations.
+Services : Showcase of services offered (Frontend and Backend).
+Experience : Professional journey presented in a timeline format.
+Portfolio : Completed projects with category filtering.
+Testimonials : Client reviews in a slider format.
+Contact : Contact form and personal information.
+Technologies Used
+Frontend :
+Angular 18
+TypeScript
+Tailwind CSS
+RxJS
+@ngx-translate
+Angular Animation API
+Backend :
+Illustrated skills include:
+Spring Boot / Spring Security
+Flask / FastAPI / Django
+Java / Python
+Relational and NoSQL database
 
-## Development server
+# Clone the repository
 
-To start a local development server, run:
+git clone https://github.com/your-username/portfolio-dilane.git
 
-```bash
+# Navigate into the project
+
+cd portfolio-dilane
+
+# Install dependencies
+
+npm install
+
+# Start the development server
+
 ng serve
-```
+The site will be accessible at http://localhost:4200/.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Project Structure
+The project follows a modular architecture with clear separation of responsibilities:
 
-## Code scaffolding
+Components : Reusable components organized by section.
+Services : Theme management and translation handling.
+Directives : Custom directives such as clickOutside.
+Assets : Static resources (images, translations, CV).
+Customization
+Theme
+Primary colors are defined in the tailwind.config.js file and in src/app/styles/variables.scss.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Content
+Texts are stored in translation files located at src/assets/i18n/fr.json and src/assets/i18n/en.json.
 
-```bash
-ng generate component component-name
-```
+Images
+Replace images in the src/assets/images/ folder while maintaining the folder structure.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Credits
+Developed by: Dilane Tchinda Takoubo
+Design: Original design inspired by modern UI/UX trends.
+Illustrations and Icons: Font Awesome and custom resources.
+License
+MIT

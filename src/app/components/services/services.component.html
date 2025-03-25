@@ -1,0 +1,135 @@
+<!-- services.component.html -->
+<section id="services" class="py-20 relative overflow-hidden">
+  <div class="container mx-auto px-4">
+    <!-- Section Title -->
+    <div class="mb-16 reveal-fade-up">
+      <div class="title mt-2">
+        <h2 class="title-text dark:text-white">
+          {{ "SERVICES.TITLE" | translate }}
+        </h2>
+      </div>
+      <div class="subtitle">
+        <div class="subtitile-bar left"></div>
+        <span class="subtitle-text">{{ "SERVICES.SUBTITLE" | translate }}</span>
+        <div class="subtitile-bar right"></div>
+      </div>
+    </div>
+
+    <p
+      class="services-description max-w-3xl mx-auto mb-16 text-center text-gray dark:text-gray-300 reveal-fade-up"
+      style="animation-delay: 0.2s"
+    >
+      {{ "SERVICES.DESCRIPTION" | translate }}
+    </p>
+
+    <!-- Services Tabs - Redesigned -->
+    <div class="mb-16 text-center reveal-fade-up" style="animation-delay: 0.3s">
+      <div
+        class="inline-flex p-1.5 bg-gray-100 dark:bg-gray-800 rounded-full shadow-md relative tab-container"
+      >
+        <!-- Background slider for active tab -->
+        <div
+          class="absolute top-1.5 bottom-1.5 rounded-full bg-gradient-to-r from-yellow to-orange transition-all duration-300 tab-slider"
+          [ngClass]="{
+            'translate-x-0': activeTab === 'frontend',
+            'translate-x-full': activeTab === 'backend'
+          }"
+        ></div>
+
+        <button
+          (click)="setActiveTab('frontend')"
+          class="py-3 px-8 rounded-full font-medium transition-all duration-300 z-10 relative"
+          [ngClass]="{
+            'text-white': activeTab === 'frontend',
+            'text-gray-700 dark:text-gray-300': activeTab !== 'frontend'
+          }"
+        >
+          <i class="fas fa-laptop-code mr-2"></i>
+          {{ "SERVICES.FRONTEND_TAB" | translate }}
+        </button>
+        <button
+          (click)="setActiveTab('backend')"
+          class="py-3 px-8 rounded-full font-medium transition-all duration-300 z-10 relative"
+          [ngClass]="{
+            'text-white': activeTab === 'backend',
+            'text-gray-700 dark:text-gray-300': activeTab !== 'backend'
+          }"
+        >
+          <i class="fas fa-server mr-2"></i>
+          {{ "SERVICES.BACKEND_TAB" | translate }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Services Container - Both tabs are in the DOM, just hidden/shown -->
+    <div class="service-tabs-container">
+      <!-- Frontend Services -->
+      <div
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 service-grid"
+        [ngClass]="{
+          active: activeTab === 'frontend',
+          inactive: activeTab !== 'frontend'
+        }"
+      >
+        <div
+          *ngFor="let service of frontendServices; let i = index"
+          class="bg-white dark:bg-transparent dark:backdrop-blur-sm rounded-xl shadow-custom dark:shadow-smCustom p-6 hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300 reveal-slide-up service-card"
+          [style.animation-delay]="i * 0.1 + 's'"
+        >
+          <div
+            class="w-16 h-16 rounded-full bg-orangeCard flex items-center justify-center mb-6 mx-auto"
+          >
+            <i [class]="'fas ' + service.icon + ' text-orange text-2xl'"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center dark:text-white">
+            {{ service.title }}
+          </h3>
+          <p class="text-gray dark:text-gray-300 text-center">
+            {{ service.description }}
+          </p>
+          <div class="mt-4 flex flex-wrap justify-center gap-2">
+            <span
+              *ngFor="let tech of service.technologies"
+              class="px-3 py-1 border border-orange text-orange hover:bg-orange hover:text-white dark:hover:bg-orange rounded-full text-xs transition-colors duration-300"
+              >{{ tech }}</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend Services -->
+      <div
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 service-grid"
+        [ngClass]="{
+          active: activeTab === 'backend',
+          inactive: activeTab !== 'backend'
+        }"
+      >
+        <div
+          *ngFor="let service of backendServices; let i = index"
+          class="bg-white dark:bg-transparent dark:backdrop-blur-sm rounded-xl shadow-custom dark:shadow-smCustom p-6 hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300 reveal-slide-up service-card"
+          [style.animation-delay]="i * 0.1 + 's'"
+        >
+          <div
+            class="w-16 h-16 rounded-full bg-orangeCard flex items-center justify-center mb-6 mx-auto"
+          >
+            <i [class]="'fas ' + service.icon + ' text-orange text-2xl'"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center dark:text-white">
+            {{ service.title }}
+          </h3>
+          <p class="text-gray dark:text-gray-300 text-center">
+            {{ service.description }}
+          </p>
+          <div class="mt-4 flex flex-wrap justify-center gap-2">
+            <span
+              *ngFor="let tech of service.technologies"
+              class="px-3 py-1 border border-orange text-orange hover:bg-orange hover:text-white dark:hover:bg-orange rounded-full text-xs transition-colors duration-300"
+              >{{ tech }}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

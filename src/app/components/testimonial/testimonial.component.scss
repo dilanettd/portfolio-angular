@@ -1,0 +1,267 @@
+.testimonial-container {
+  position: relative;
+
+  .nav-button {
+    position: absolute;
+    z-index: 100;
+  }
+}
+
+.shadow-effect {
+  background: rgba(255, 255, 255, 0.11);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid gainsboro;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100% !important;
+  min-height: 300px;
+  overflow: hidden;
+  padding: 3rem 1.5rem !important;
+  opacity: 1;
+  transform: scale(1);
+  margin: 0 auto; /* Center the card */
+  max-width: 600px; /* Maximum width for the card */
+}
+
+.focused-card {
+  opacity: 1;
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.blurred-card {
+  opacity: 0.7;
+  transform: scale(0.95);
+}
+
+.testimonial-card img {
+  display: block;
+  object-fit: cover;
+}
+
+.nav-button {
+  i {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    i {
+      color: white;
+    }
+  }
+
+  pointer-events: auto !important;
+  position: absolute !important;
+  cursor: pointer !important;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: -1;
+  }
+}
+
+.dot-indicator {
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Improved mobile container styles */
+.mobile-container {
+  max-width: 100% !important;
+  width: 100%;
+  padding: 0 !important;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Improved mobile view styles */
+.mobile-view {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 350px;
+  margin: 0 auto;
+
+  .carousel-track {
+    width: 100% !important;
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center !important; /* Force center alignment */
+    align-items: center;
+    transform: none !important; /* Override any transform from desktop view */
+  }
+
+  .equal-height-card {
+    width: 90% !important;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 !important;
+    position: absolute !important; /* Position absolutely for proper mobile control */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+
+    /* Only the active card should be visible */
+    &:not(.active-card) {
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    &.active-card {
+      opacity: 1;
+      z-index: 2;
+      display: flex !important;
+      justify-content: center;
+    }
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.carousel-track {
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+}
+
+.equal-height-card {
+  display: flex;
+  height: 350px;
+}
+
+// Adjustments for desktop view
+@media (min-width: 1025px) {
+  .carousel-track {
+    min-height: 350px;
+
+    .equal-height-card {
+      position: relative !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .focused-card {
+    transform: scale(1.02);
+  }
+
+  .blurred-card {
+    opacity: 0.8;
+    filter: blur(0.5px);
+    transform: scale(0.98);
+  }
+}
+
+/* Improved mobile styles */
+@media (max-width: 768px) {
+  .mobile-view {
+    height: auto;
+    min-height: 350px;
+  }
+
+  .testimonial-card {
+    min-height: 250px;
+    padding: 1rem !important;
+    width: 90% !important;
+    margin: 0 auto;
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Ensure navigation buttons are properly positioned */
+  button[aria-label="Previous testimonial"],
+  button[aria-label="Next testimonial"] {
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+  }
+
+  button[aria-label="Previous testimonial"] {
+    left: 0;
+  }
+
+  button[aria-label="Next testimonial"] {
+    right: 0;
+  }
+}

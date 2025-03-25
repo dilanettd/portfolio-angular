@@ -1,0 +1,76 @@
+/* header.component.scss */
+
+/* Ajouter une marge haute pour compenser le header fixe */
+.header-spacer {
+  height: 66px; /* Ajuster cette valeur à la hauteur de votre header */
+}
+
+/* Animation pour rendre le header plus compact en scrollant */
+header {
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+
+/* Animation de slide down pour le menu mobile */
+.animate-slideUp {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation pour l'apparition du menu de langue */
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styles pour les liens de navigation avec effet de soulignement */
+nav ul li a {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #fca61f; /* Votre couleur orange */
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+/* Ajout d'une ombre légère au scroll */
+:host {
+  .shadow-on-scroll {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Assurez-vous que le header a un z-index élevé */
+header {
+  z-index: 1000;
+}

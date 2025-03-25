@@ -1,0 +1,111 @@
+<section id="testimonial" class="py-20 relative overflow-hidden">
+  <div
+    class="blur absolute left-8 top-20 bg-blue bg-opacity-30 dark:opacity-20"
+  ></div>
+  <div
+    class="blur absolute right-20 bottom-32 bg-purple bg-opacity-20 dark:opacity-10"
+  ></div>
+  <div class="container mx-auto px-4">
+    <div class="mb-16">
+      <div class="title mt-2">
+        <h2 class="title-text">{{ "TESTIMONIAL.TITLE" | translate }}</h2>
+      </div>
+      <div class="subtitle">
+        <div class="subtitile-bar left"></div>
+        <span class="subtitle-text">{{
+          "TESTIMONIAL.SUBTITLE" | translate
+        }}</span>
+        <div class="subtitile-bar right"></div>
+      </div>
+    </div>
+    <p class="max-w-3xl mx-auto mb-16 text-center text-gray dark:text-gray-300">
+      {{ "TESTIMONIAL.DESCRIPTION" | translate }}
+    </p>
+    <div
+      class="max-w-5xl mx-auto relative py-8 testimonial-container"
+      [ngClass]="{ 'mobile-container': visibleItems === 1 }"
+    >
+      <button
+        (click)="prevTestimonial()"
+        class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-6 z-10 w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center text-orange hover:bg-orange hover:text-white transition-colors duration-300 cursor-pointer nav-button"
+        aria-label="Previous testimonial"
+        type="button"
+        [style.left]="visibleItems === 1 ? '10px' : '-24px'"
+        [style.transform]="
+          visibleItems === 1 ? 'translateY(-50%)' : 'translateY(-50%)'
+        "
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div
+        class="overflow-hidden px-4"
+        [ngClass]="{ 'mobile-view': visibleItems === 1 }"
+      >
+        <div
+          class="flex transition-transform duration-500 ease-in-out carousel-track"
+          [style.transform]="
+            visibleItems === 1
+              ? 'none'
+              : 'translateX(calc(50% - ' +
+                (100 / visibleItems) * currentTestimonial +
+                '%))'
+          "
+          #carouselTrack
+          [style.justifyContent]="visibleItems === 1 ? 'center' : 'flex-start'"
+        >
+          <div
+            *ngFor="let testimonial of clonedTestimonials; let i = index"
+            class="flex-shrink-0 px-4 transition-all duration-300 equal-height-card"
+            [ngClass]="{
+              'w-full': visibleItems === 1,
+              'w-1/3': visibleItems === 3
+            }"
+            [class.active-card]="i === currentTestimonial && visibleItems === 1"
+          >
+            <div
+              class="testimonial-card shadow-effect bg-white dark:bg-gray-800 rounded-lg p-6 text-center flex flex-col items-center justify-center border-2 border-orange"
+            >
+              <img
+                [src]="'assets/images/testimonials/' + testimonial.image"
+                [alt]="testimonial.name"
+                class="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-2 border-orange"
+                (error)="handleImageError($event)"
+              />
+              <h4 class="font-bold text-lg mb-3 dark:text-white">
+                {{ testimonial.name }}
+              </h4>
+              <p class="text-gray dark:text-gray-300 italic">
+                "{{ testimonial.content }}"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        (click)="nextTestimonial()"
+        class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-6 z-10 w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center text-orange hover:bg-orange hover:text-white transition-colors duration-300 cursor-pointer nav-button"
+        aria-label="Next testimonial"
+        type="button"
+        [style.right]="visibleItems === 1 ? '10px' : '-24px'"
+        [style.transform]="
+          visibleItems === 1 ? 'translateY(-50%)' : 'translateY(-50%)'
+        "
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="flex justify-center mt-8">
+        <button
+          *ngFor="let _ of testimonials; let i = index"
+          (click)="goToTestimonial(i)"
+          class="dot-indicator w-3 h-3 rounded-full mx-1"
+          [ngClass]="{
+            'bg-orange': getOriginalIndex(currentTestimonial) === i,
+            'bg-[#777] dark:bg-gray-600':
+              getOriginalIndex(currentTestimonial) !== i
+          }"
+          [attr.aria-label]="'Go to testimonial ' + (i + 1)"
+        ></button>
+      </div>
+    </div>
+  </div>
+</section>

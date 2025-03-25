@@ -1,0 +1,157 @@
+<section id="portfolio" class="py-20 relative overflow-hidden">
+  <!-- Background blur effects -->
+  <div
+    class="blur absolute left-8 top-20 bg-blue bg-opacity-30 dark:opacity-20"
+  ></div>
+  <div
+    class="blur absolute right-20 bottom-32 bg-purple bg-opacity-20 dark:opacity-10"
+  ></div>
+
+  <div class="container mx-auto px-4">
+    <!-- Section Title -->
+    <div class="mb-16 reveal">
+      <div class="title mt-2">
+        <h2 class="title-text dark:text-white">
+          {{ "PORTFOLIO.TITLE" | translate }}
+        </h2>
+      </div>
+      <div class="subtitle">
+        <div class="subtitile-bar left"></div>
+        <span class="subtitle-text">{{
+          "PORTFOLIO.SUBTITLE" | translate
+        }}</span>
+        <div class="subtitile-bar right"></div>
+      </div>
+    </div>
+
+    <p
+      class="max-w-3xl mx-auto mb-16 text-center text-gray dark:text-gray-300 reveal"
+    >
+      {{ "PORTFOLIO.DESCRIPTION" | translate }}
+    </p>
+
+    <!-- Filtering Categories -->
+    <div class="flex flex-wrap justify-center mb-12 gap-3 reveal">
+      <button
+        (click)="filterCategory('all')"
+        [ngClass]="{
+          'bg-orange text-white': activeCategory === 'all',
+          'bg-gray-100 dark:bg-gray-700 text-black dark:text-white':
+            activeCategory !== 'all'
+        }"
+        class="px-5 py-2 rounded-full transition-all duration-300 hover:shadow-md"
+      >
+        {{ "PORTFOLIO.ALL" | translate }}
+      </button>
+
+      <button
+        *ngFor="let category of categories"
+        (click)="filterCategory(category)"
+        [ngClass]="{
+          'bg-orange text-white': activeCategory === category,
+          'bg-gray-100 dark:bg-gray-700 text-black dark:text-white':
+            activeCategory !== category
+        }"
+        class="px-5 py-2 rounded-full transition-all duration-300 hover:shadow-md"
+      >
+        {{ "PORTFOLIO.CATEGORIES." + category.toUpperCase() | translate }}
+      </button>
+    </div>
+
+    <!-- Projects Grid - 2 cards per row on desktop -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 reveal-container">
+      <div
+        *ngFor="let project of displayedProjects; let i = index"
+        class="bg-white dark:bg-transparent dark:backdrop-blur-sm rounded-xl overflow-hidden shadow-custom dark:shadow-smCustom hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 flex flex-col md:flex-row project-card reveal-item"
+        [attr.data-delay]="i * 0.1"
+      >
+        <!-- Project Details - Left side on desktop, bottom on mobile -->
+        <div
+          class="p-8 flex-1 flex flex-col justify-between order-2 md:order-1"
+        >
+          <div>
+            <div
+              class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-2"
+            >
+              <h3 class="text-2xl font-bold dark:text-white">
+                {{ project.title }}
+              </h3>
+              <span
+                class="px-3 py-1 bg-orangeCard rounded-full text-xs whitespace-nowrap"
+                >{{
+                  "PORTFOLIO.CATEGORIES." + project.category.toUpperCase()
+                    | translate
+                }}</span
+              >
+            </div>
+
+            <p class="text-gray dark:text-gray-300 mb-8 text-base">
+              {{ project.description }}
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span
+                *ngFor="let tech of project.technologies"
+                class="px-3 py-1.5 border border-orange text-orange dark:bg-gray-700 rounded-full text-sm"
+                >{{ tech }}</span
+              >
+            </div>
+          </div>
+
+          <!-- Project Actions -->
+          <div class="flex space-x-4 mt-auto">
+            <a
+              *ngIf="project.codeUrl"
+              [href]="project.codeUrl"
+              target="_blank"
+              class="flex items-center gap-2 px-5 py-2.5 bg-gray-100 dark:bg-gray-700 text-orange hover:bg-orange hover:text-white rounded-full transition-all duration-300"
+            >
+              <i class="fab fa-github"></i>
+              <span>Code</span>
+            </a>
+            <a
+              *ngIf="project.demoUrl"
+              [href]="project.demoUrl"
+              target="_blank"
+              class="flex items-center gap-2 px-5 py-2.5 bg-gray-100 dark:bg-gray-700 text-orange hover:bg-orange hover:text-white rounded-full transition-all duration-300"
+            >
+              <i class="fas fa-external-link-alt"></i>
+              <span>Demo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project Image - Right side on desktop, top on mobile -->
+        <div
+          class="relative md:w-2/5 h-80 md:h-auto order-1 md:order-2 image-container"
+        >
+          <!-- Primary Image -->
+          <img
+            [src]="'assets/images/portfolio/' + getPrimaryImage(project)"
+            [alt]="project.title"
+            class="w-full h-full object-cover primary-image"
+          />
+
+          <!-- Secondary Image (visible on hover) -->
+          <img
+            [src]="'assets/images/portfolio/' + getSecondaryImage(project)"
+            [alt]="project.title + ' detail'"
+            class="w-full h-full object-cover secondary-image"
+          />
+
+          <!-- Gradient overlay for better text visibility -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent md:bg-gradient-to-r"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load More Button (if needed) -->
+    <div *ngIf="hasMoreProjects" class="text-center mt-12">
+      <button (click)="loadMoreProjects()" class="button">
+        {{ "PORTFOLIO.LOAD_MORE" | translate }}
+      </button>
+    </div>
+  </div>
+</section>
