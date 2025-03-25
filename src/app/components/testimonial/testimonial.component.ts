@@ -30,28 +30,28 @@ export class TestimonialComponent implements OnInit, OnDestroy, AfterViewInit {
   testimonials: Testimonial[] = [
     {
       id: 1,
-      name: 'Sophie Martin',
+      name: ' Martin',
       content:
         'Dilane a transformé notre vision en une plateforme web exceptionnelle. Sa compréhension de nos besoins métier et sa maîtrise technique ont fait toute la différence.',
       image: 'testimonial-1.jpg',
     },
     {
       id: 2,
-      name: 'Thomas Dubois',
+      name: 'Thomas',
       content:
         'Nous avons confié à Dilane le développement de notre application financière et les résultats ont dépassé nos attentes. Son expertise en Angular et Spring Boot a permis de livrer un produit stable et performant.',
       image: 'testimonial-2.jpg',
     },
     {
       id: 3,
-      name: 'Émilie Leroy',
+      name: 'Émilie ',
       content:
         'Dilane is a true asset to our company. He not only developed our e-commerce platform but also brought innovative ideas that improved the user experience.',
       image: 'testimonial-3.jpg',
     },
     {
       id: 4,
-      name: 'Laurent Moreau',
+      name: 'Laurent ',
       content:
         'Collaborating with Dilane has been an enriching experience. His methodical approach and passion for technology are truly impressive. A talented developer who goes beyond expectations.',
       image: 'testimonial-4.jpg',

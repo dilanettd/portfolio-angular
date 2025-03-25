@@ -27,6 +27,12 @@ header {
   }
 }
 
+.fa-times,
+.fa-bars {
+  font-size: 34px;
+  color: #fca61f;
+}
+
 /* Animation pour l'apparition du menu de langue */
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out forwards;

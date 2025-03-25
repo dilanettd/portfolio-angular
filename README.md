@@ -48,6 +48,18 @@ npm install
 ng serve
 The site will be accessible at http://localhost:4200/.
 
+# Supprimez d'abord la branche gh-pages existante
+
+git push origin --delete gh-pages
+
+# Construisez l'application
+
+ng build --base-href="/portfolio-angular/"
+
+# Déployez en spécifiant le dossier browser
+
+npx angular-cli-ghpages --dir=dist/porfolio/browser --no-silent
+
 Project Structure
 The project follows a modular architecture with clear separation of responsibilities:
 
